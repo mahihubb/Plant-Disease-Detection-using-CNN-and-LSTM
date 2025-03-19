@@ -16,7 +16,7 @@ LSTM_MODEL_PATH = os.path.join(MODEL_DIR, "LSTM_model.keras")
 
 
 # Download model from Hugging Face
-CNN_MODEL_PATH= hf_hub_download(repo_id="June014/CNN_model", filename="CNN_model.keras")
+#CNN_MODEL_PATH='....'
 
 
 print("Model loaded successfully!")
@@ -44,13 +44,18 @@ st.title("🌱 Plant Disease Detection")
 st.write("Upload an image of a plant leaf to detect diseases.")
 
 # Model Selection Dropdown (No Default)
+# Model Selection Dropdown (No Default)
 st.write("🔍 **Select a Model:**")
 model_choice = st.selectbox("", ["Select Model", "LSTM", "CNN"], index=0)
 
-if model_choice != "Select Model":
+if model_choice == "CNN":
+    st.warning("⚠️ Please download the CNN model from drive and place it in the correct folder.")
+elif model_choice != "Select Model":
     # Load the selected model
     model_path = LSTM_MODEL_PATH if model_choice == "LSTM" else CNN_MODEL_PATH
     model = tf.keras.models.load_model(model_path)
+
+
 
     # Upload Image
     uploaded_file = st.file_uploader("📷 Choose an image...", type=["jpg", "png", "jpeg"])
@@ -90,14 +95,14 @@ if model_choice != "Select Model":
 
         # Create Two Columns
         col1, col2 = st.columns(2)
-
+        st.write("") 
         with col1:
             st.header("📥 Uploaded Image")
-            st.image(image, caption="Original Image", use_column_width=True)
+            st.image(image, caption="Original Image", use_container_width=True)
 
         with col2:
             st.header("🔍 Prediction")
-            st.image(image, caption=f"Predicted: {disease_name}", use_column_width=True)
+            st.image(image, caption=f"Predicted: {disease_name}", use_container_width=True)
             st.success(f"🌿 **Disease Detected:** {disease_name}")
 else:
     st.warning("⚠️ Please select a model to proceed.")
