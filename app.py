@@ -4,7 +4,9 @@ import tensorflow as tf
 from PIL import Image
 
 # Model Paths
-LSTM_MODEL_PATH = r"Models\LSTM_model.keras"
+LSTM_MODEL_PATH = keras.models.load_model("Models/LSTM_model.keras")
+print("Model loaded successfully!")
+
 CNN_MODEL_PATH = r"C:\Users\Rama Devi\Desktop\Plant Disease Detection\Models\CNN_model.keras"
 
 # Define class labels
