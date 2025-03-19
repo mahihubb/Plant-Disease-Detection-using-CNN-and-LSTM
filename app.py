@@ -72,6 +72,8 @@ if model_choice != "Select Model":
             input_arr = input_arr.reshape(1, 128, 128, 3)
         else:
             input_arr = np.expand_dims(input_arr, axis=0)  # (1, 224, 224, 3)
+            feature_extractor = tf.keras.Model(model.input, model.layers[-2].output)  # Get feature layer output
+            input_arr = feature_extractor.predict(input_arr) 
            
 
 
