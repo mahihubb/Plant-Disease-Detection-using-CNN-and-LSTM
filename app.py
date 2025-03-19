@@ -3,7 +3,6 @@ import numpy as np
 import tensorflow as tf
 from PIL import Image
 from tensorflow import keras
-from huggingface_hub import hf_hub_download
 
 
 # Model Paths
