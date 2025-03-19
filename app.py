@@ -13,9 +13,7 @@ import requests
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_DIR = os.path.join(BASE_DIR, "Models")
 LSTM_MODEL_PATH = os.path.join(MODEL_DIR, "LSTM_model.keras")
-drive.mount('/content/drive')
 
-# Path to the CNN model inside Drive
 
 # Download model from Hugging Face
 CNN_MODEL_PATH= hf_hub_download(repo_id="June014/CNN_model", filename="CNN_model.keras")
