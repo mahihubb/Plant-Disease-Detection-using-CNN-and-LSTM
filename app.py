@@ -6,7 +6,8 @@ from tensorflow import keras
 
 
 # Model Paths
-LSTM_MODEL_PATH = keras.models.load_model("Models/LSTM_model.keras")
+
+LSTM_MODEL_PATH = keras.models.load_model("LSTM_model.keras")
 print("Model loaded successfully!")
 
 CNN_MODEL_PATH = r"C:\Users\Rama Devi\Desktop\Plant Disease Detection\Models\CNN_model.keras"
