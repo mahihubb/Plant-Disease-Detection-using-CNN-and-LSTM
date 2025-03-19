@@ -6,8 +6,13 @@ from tensorflow import keras
 
 
 # Model Paths
+import os
+import requests
 
-LSTM_MODEL_PATH = keras.models.load_model("LSTM_model.keras")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_DIR = os.path.join(BASE_DIR, "Models")
+LSTM_MODEL_PATH = os.path.join(MODEL_DIR, "LSTM_model.keras")
+
 print("Model loaded successfully!")
 
 CNN_MODEL_PATH = r"C:\Users\Rama Devi\Desktop\Plant Disease Detection\Models\CNN_model.keras"
