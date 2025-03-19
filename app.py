@@ -2,6 +2,8 @@ import streamlit as st
 import numpy as np
 import tensorflow as tf
 from PIL import Image
+from tensorflow import keras
+
 
 # Model Paths
 LSTM_MODEL_PATH = keras.models.load_model("Models/LSTM_model.keras")
