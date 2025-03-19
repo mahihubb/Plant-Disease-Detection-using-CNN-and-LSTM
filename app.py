@@ -70,8 +70,12 @@ if model_choice != "Select Model":
         # Adjust input shape based on the model
         if model_choice == "LSTM":
             input_arr = input_arr.reshape(1, 128, 128, 3)
-        else:  # CNN Model
-            input_arr = np.expand_dims(input_arr, axis=0)  # Shape (1, 128, 128, 3)
+        else:
+            input_arr = np.expand_dims(input_arr, axis=0)  # (1, 224, 224, 3)
+            input_arr = input_arr.reshape(1, -1)  
+
+
+        
 
         # Debugging Statements
         print("Model expected input shape:", model.input_shape)
