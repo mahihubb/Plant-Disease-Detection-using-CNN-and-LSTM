@@ -62,7 +62,7 @@ if model_choice != "Select Model":
         if model_choice == "LSTM":
             target_size = (128,128)  # Adjusted to match 41472 input
         else:  # CNN Model
-            target_size = (256,256)
+            target_size = (224,224)
 
         image_resized = image.resize(target_size)  
         input_arr = np.array(image_resized) / 255.0  # Normalize pixel values
